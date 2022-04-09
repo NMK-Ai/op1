@@ -20,7 +20,7 @@ TrackWidget::TrackWidget(QWidget *parent) : QWidget(parent) {
 
   // pre-compute all the track imgs. make this a gif instead?
   QPixmap comma_img = loadPixmap("../assets/img_spinner_nasser.png", spinner_size);
-  QPixmap track_img = loadPixmap("../assets/img_spinner_track.png", spinner_size);
+  QPixmap track_img = loadPixmap("../assets/img_nasser_track.png", spinner_size);
 
   QTransform transform(1, 0, 0, 1, width() / 2, height() / 2);
   QPixmap pm(spinner_size);
