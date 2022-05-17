@@ -14,10 +14,10 @@ if [ ! -f "/system/fonts/NanumGothic.ttf" ]; then
   mount -o ro,remount /system
 fi
 
-if [ "$(getprop persist.sys.locale)" != "ko-KR" ]; then
-    setprop persist.sys.locale ko-KR
-    setprop persist.sys.language ko
-    setprop persist.sys.country KR
+if [ "$(getprop persist.sys.locale)" != "es-AR" ]; then
+    setprop persist.sys.locale es-AR
+    setprop persist.sys.language es
+    setprop persist.sys.country AR
     setprop persist.sys.timezone Asia/Seoul
 
     sleep 2
