@@ -18,7 +18,7 @@ if [ "$(getprop persist.sys.locale)" != "es-AR" ]; then
     setprop persist.sys.locale es-AR
     setprop persist.sys.language es
     setprop persist.sys.country AR
-    setprop persist.sys.timezone Asia/Seoul
+    setprop persist.sys.timezone Asia/Riyadh
 
     sleep 2
     reboot
