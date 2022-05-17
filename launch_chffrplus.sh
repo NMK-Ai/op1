@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-if [ ! -f "/system/fonts/NanumGothic.ttf" ]; then
+if [ ! -f "/system/fonts/arial.ttf" ]; then
   echo "Installing fonts..."
 
   mount -o rw,remount /system
