@@ -4,8 +4,8 @@ if [ ! -f "/system/fonts/arial.ttf" ]; then
   echo "Installing fonts..."
 
   mount -o rw,remount /system
-  cp -rf /data/openpilot/selfdrive/fonts/kor/NanumGothic* /system/fonts/
-  cp -rf /data/openpilot/selfdrive/fonts/kor/fonts.xml /system/etc/fonts.xml
+  cp -rf /data/openpilot/selfdrive/fonts/ar/arial* /system/fonts/
+  cp -rf /data/openpilot/selfdrive/fonts/ar/fonts.xml /system/etc/fonts.xml
   
   chmod 644 /system/etc/fonts.xml
   chmod 644 /system/fonts/NanumGothic*
