@@ -464,7 +464,7 @@ def main() -> None:
     except Exception:
       cloudlog.exception("uncaught updated exception while setting params, shouldn't happen")
 
-    wait_helper.sleep(900)
+    wait_helper.sleep(60)
 
   dismount_overlay()
 
