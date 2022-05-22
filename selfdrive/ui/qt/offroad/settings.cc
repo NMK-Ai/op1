@@ -580,7 +580,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
 
   QList<ParamControl*> toggles;
 
-  toggles.append(new ParamControl("UseClusterSpeed",
+  toggles.append(new ParamControl("استخدام سرعة العداد",
                                             "Use Cluster Speed",
                                             "Use cluster speed instead of wheel speed.",
                                             "../assets/offroad/icon_road.png",
