@@ -25,7 +25,7 @@ if __name__ == "__main__":
   speed = 0.
   try:
     while True:
-      time.sleep(1 / 900)  # continually send, rate doesn't matter
+      time.sleep(1 / 100)  # continually send, rate doesn't matter
       
       msgs['carState'] = messaging.new_message('carState')
       msgs['carState'].carState.cluSpeedMs = speed
