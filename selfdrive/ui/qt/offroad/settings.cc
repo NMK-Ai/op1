@@ -593,13 +593,13 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
                                             this));
 
   toggles.append(new ParamControl("MadModeEnabled",
-                                            "Enable HKG MAD mode",
+                                            "تفعيل وضع ماد مود",
                                             "Openpilot will engage when turn cruise control on",
                                             "../assets/offroad/icon_openpilot.png",
                                             this));
 
   toggles.append(new ParamControl("IsLdwsCar",
-                                            "LDWS",
+                                            "نظام التحذير من الخروج عن المسار",
                                             "If your car only supports LDWS, turn it on.",
                                             "../assets/offroad/icon_openpilot.png",
                                             this));
@@ -629,7 +629,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
                                             this));
 
   toggles.append(new ParamControl("StockNaviDecelEnabled",
-                                            "ربط السرعة عن طريق الإقمار الإصطناعية",
+                                            "ربط السرعة عن طريق الأقمار الإصطناعية",
                                             "Use the stock navi based deceleration for longcontrol",
                                             "../assets/offroad/icon_road.png",
                                             this));
@@ -658,7 +658,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
                                             this));
 
   toggles.append(new ParamControl("ShowDebugUI",
-                                            "Show Debug UI",
+                                            "عرض تصحيح الأخطاء و.م",
                                             "",
                                             "../assets/offroad/icon_shell.png",
                                             this));
