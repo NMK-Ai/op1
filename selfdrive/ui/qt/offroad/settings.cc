@@ -580,14 +580,14 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
 
   QList<ParamControl*> toggles;
 
-  toggles.append(new ParamControl("استخدام سرعة العداد",
-                                            "Use Cluster Speed",
+  toggles.append(new ParamControl("Use cluster speed",
+                                            "استخدام سرعة العداد",
                                             "Use cluster speed instead of wheel speed.",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("LongControlEnabled",
-                                            "Enable HKG Long Control",
+                                            "تفعيل المتحكم الطويل",
                                             "warnings: it is beta, be careful!! Openpilot will control the speed of your car",
                                             "../assets/offroad/icon_road.png",
                                             this));
@@ -605,42 +605,42 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
                                             this));
 
   toggles.append(new ParamControl("LaneChangeEnabled",
-                                            "Enable Lane Change Assist",
+                                            "تفعيل نظام تغيير المسار",
                                             "Perform assisted lane changes with openpilot by checking your surroundings for safety, activating the turn signal and gently nudging the steering wheel towards your desired lane. openpilot is not capable of checking if a lane change is safe. You must continuously observe your surroundings to use this feature.",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("AutoLaneChangeEnabled",
-                                            "Enable Auto Lane Change(Nudgeless)",
+                                            "تفعيل نظام تغيير المسار (التلقائي)",
                                             "warnings: it is beta, be careful!!",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("SccSmootherSlowOnCurves",
-                                            "Enable Slow On Curves",
+                                            "تفعيل التهدئة عند المنعطفات",
                                             "",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("SccSmootherSyncGasPressed",
-                                            "Sync set speed on gas pressed",
+                                            "تفعيل السرعة من دواسة الوقود",
                                             "",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("StockNaviDecelEnabled",
-                                            "Stock Navi based deceleration",
+                                            "ربط السرعة عن طريق الإقمار الإصطناعية",
                                             "Use the stock navi based deceleration for longcontrol",
                                             "../assets/offroad/icon_road.png",
                                             this));
 
   toggles.append(new ParamControl("KeepSteeringTurnSignals",
-                                            "Keep steering while turn signals",
+                                            "إبقاء عجلة القيادة أثناء الإنعطاف",
                                             "",
                                             "../assets/offroad/icon_openpilot.png",
                                             this));
   toggles.append(new ParamControl("HapticFeedbackWhenSpeedCamera",
-                                            "Haptic feedback (speed-cam alert)",
+                                            "تنبيه إضافي (كاميرا السرعة)",
                                             "Haptic feedback when a speed camera is detected",
                                             "../assets/offroad/icon_openpilot.png",
                                             this));
@@ -652,7 +652,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
                                             this));*/
 
   toggles.append(new ParamControl("DisableOpFcw",
-                                            "Disable Openpilot FCW",
+                                            "تعطيل نظام التحذير من الإصتدام",
                                             "",
                                             "../assets/offroad/icon_shell.png",
                                             this));
