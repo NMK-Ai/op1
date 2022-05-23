@@ -124,7 +124,7 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   });
 
   // reset calibration button
-  QPushButton *reset_calib_btn = new QPushButton("Reset Calibration");
+  QPushButton *reset_calib_btn = new QPushButton("إعادة ضبط المعايرة");
   reset_calib_btn->setStyleSheet("height: 120px;border-radius: 15px;background-color: #393939;");
   reset_layout->addWidget(reset_calib_btn);
   QObject::connect(reset_calib_btn, &QPushButton::released, [=]() {
@@ -142,12 +142,12 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
 
   // offroad-only buttons
 
-  auto dcamBtn = new ButtonControl("Driver Camera", "PREVIEW",
+  auto dcamBtn = new ButtonControl("كاميرا السائق", "عرض",
                                    "Preview the driver facing camera to help optimize device mounting position for best driver monitoring experience. (vehicle must be off)");
   connect(dcamBtn, &ButtonControl::clicked, [=]() { emit showDriverView(); });
   addItem(dcamBtn);
 
-  auto resetCalibBtn = new ButtonControl("Reset Calibration", "RESET", " ");
+  auto resetCalibBtn = new ButtonControl("إعادة المعايرة", "إعادة تعيين", " ");
   connect(resetCalibBtn, &ButtonControl::showDescription, this, &DevicePanel::updateCalibDescription);
   connect(resetCalibBtn, &ButtonControl::clicked, [&]() {
     if (ConfirmationDialog::confirm("Are you sure you want to reset calibration?", this)) {
@@ -157,9 +157,9 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   addItem(resetCalibBtn);
 
   if (!params.getBool("Passive")) {
-    auto retrainingBtn = new ButtonControl("Review Training Guide", "REVIEW", "Review the rules, features, and limitations of openpilot");
+    auto retrainingBtn = new ButtonControl("مراجعة دليل التدريب", "استعراض", "راجع القواعد, الميزات, والحدود في القائد العربي");
     connect(retrainingBtn, &ButtonControl::clicked, [=]() {
-      if (ConfirmationDialog::confirm("Are you sure you want to review the training guide?", this)) {
+      if (ConfirmationDialog::confirm("هل أنت متأكد أنك تريد مراجعة دليل التدريب؟", this)) {
         emit reviewTrainingGuide();
       }
     });
@@ -167,7 +167,7 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   }
 
   if (Hardware::TICI()) {
-    auto regulatoryBtn = new ButtonControl("Regulatory", "VIEW", "");
+    auto regulatoryBtn = new ButtonControl("تنظيمية", "عرض", "");
     connect(regulatoryBtn, &ButtonControl::clicked, [=]() {
       const std::string txt = util::read_file("../assets/offroad/fcc.html");
       RichTextDialog::alert(QString::fromStdString(txt), this);
@@ -234,27 +234,27 @@ void DevicePanel::updateCalibDescription() {
 
 void DevicePanel::reboot() {
   if (!uiState()->engaged()) {
-    if (ConfirmationDialog::confirm("Are you sure you want to reboot?", this)) {
+    if (ConfirmationDialog::confirm("هل أنت متأكد أنك تريد إعادة التشغيل؟", this)) {
       // Check engaged again in case it changed while the dialog was open
       if (!uiState()->engaged()) {
         Params().putBool("DoReboot", true);
       }
     }
   } else {
-    ConfirmationDialog::alert("Disengage to Reboot", this);
+    ConfirmationDialog::alert("فك الارتباط لإعادة التشغيل", this);
   }
 }
 
 void DevicePanel::poweroff() {
   if (!uiState()->engaged()) {
-    if (ConfirmationDialog::confirm("Are you sure you want to power off?", this)) {
+    if (ConfirmationDialog::confirm("هل أنت متأكد أنك تريد إيقاف التشغيل؟", this)) {
       // Check engaged again in case it changed while the dialog was open
       if (!uiState()->engaged()) {
         Params().putBool("DoShutdown", true);
       }
     }
   } else {
-    ConfirmationDialog::alert("Disengage to Power Off", this);
+    ConfirmationDialog::alert("فك الارتباط لإيقاف التشغيل", this);
   }
 }
 
@@ -276,9 +276,9 @@ SoftwarePanel::SoftwarePanel(QWidget* parent) : ListWidget(parent) {
   });
 
 
-  auto uninstallBtn = new ButtonControl("Uninstall " + getBrand(), "UNINSTALL");
+  auto uninstallBtn = new ButtonControl("الغاء التثبيت " + getBrand(), "UNINSTALL");
   connect(uninstallBtn, &ButtonControl::clicked, [&]() {
-    if (ConfirmationDialog::confirm("Are you sure you want to uninstall?", this)) {
+    if (ConfirmationDialog::confirm("هل أنت متأكد أنك تريد إلغاء التثبيت؟", this)) {
       params.putBool("DoUninstall", true);
     }
   });
@@ -329,11 +329,11 @@ C2NetworkPanel::C2NetworkPanel(QWidget *parent) : QWidget(parent) {
   list->setSpacing(30);
   // wifi + tethering buttons
 #ifdef QCOM
-  auto wifiBtn = new ButtonControl("Wi-Fi Settings", "OPEN");
+  auto wifiBtn = new ButtonControl("اعدادات الواي فاي", "افتح");
   QObject::connect(wifiBtn, &ButtonControl::clicked, [=]() { HardwareEon::launch_wifi(); });
   list->addItem(wifiBtn);
 
-  auto tetheringBtn = new ButtonControl("Tethering Settings", "OPEN");
+  auto tetheringBtn = new ButtonControl("إعدادات الربط", "افتح");
   QObject::connect(tetheringBtn, &ButtonControl::clicked, [=]() { HardwareEon::launch_tethering(); });
   list->addItem(tetheringBtn);
 #endif
