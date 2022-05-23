@@ -259,12 +259,12 @@ void DevicePanel::poweroff() {
 }
 
 SoftwarePanel::SoftwarePanel(QWidget* parent) : ListWidget(parent) {
-  gitBranchLbl = new LabelControl("Git Branch");
-  gitCommitLbl = new LabelControl("Git Commit");
-  osVersionLbl = new LabelControl("OS Version");
-  versionLbl = new LabelControl("Version", "", QString::fromStdString(params.get("ReleaseNotes")).trimmed());
-  lastUpdateLbl = new LabelControl("Last Update Check", "", "The last time openpilot successfully checked for an update. The updater only runs while the car is off.");
-  updateBtn = new ButtonControl("Check for Update", "");
+  gitBranchLbl = new LabelControl("الفرع البرمجي");
+  gitCommitLbl = new LabelControl("رمز الحفظ");
+  osVersionLbl = new LabelControl("إصدار نظام التشغيل");
+  versionLbl = new LabelControl("الإصدار", "", QString::fromStdString(params.get("ReleaseNotes")).trimmed());
+  lastUpdateLbl = new LabelControl("تاريخ آخر تحديث", "", "The last time openpilot successfully checked for an update. The updater only runs while the car is off.");
+  updateBtn = new ButtonControl("فحص التحديثات", "");
   connect(updateBtn, &ButtonControl::clicked, [=]() {
     if (params.getBool("IsOffroad")) {
       fs_watch->addPath(QString::fromStdString(params.getParamPath("LastUpdateTime")));
@@ -276,7 +276,7 @@ SoftwarePanel::SoftwarePanel(QWidget* parent) : ListWidget(parent) {
   });
 
 
-  auto uninstallBtn = new ButtonControl("الغاء التثبيت " + getBrand(), "UNINSTALL");
+  auto uninstallBtn = new ButtonControl("الغاء التثبيت " + getBrand(), "الغاء التثبيت");
   connect(uninstallBtn, &ButtonControl::clicked, [&]() {
     if (ConfirmationDialog::confirm("هل أنت متأكد أنك تريد إلغاء التثبيت؟", this)) {
       params.putBool("DoUninstall", true);
