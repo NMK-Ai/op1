@@ -183,14 +183,14 @@ DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
 
   // power buttons
   QHBoxLayout *power_layout = new QHBoxLayout();
-  power_layout->setSpacing(30);
+  power_layout->setSpacing(60);
 
-  QPushButton *reboot_btn = new QPushButton("Reboot");
+  QPushButton *reboot_btn = new QPushButton("الغاء التثبيت");
   reboot_btn->setObjectName("reboot_btn");
   power_layout->addWidget(reboot_btn);
   QObject::connect(reboot_btn, &QPushButton::clicked, this, &DevicePanel::reboot);
 
-  QPushButton *poweroff_btn = new QPushButton("Power Off");
+  QPushButton *poweroff_btn = new QPushButton("إيقاث التشغيل");
   poweroff_btn->setObjectName("poweroff_btn");
   power_layout->addWidget(poweroff_btn);
   QObject::connect(poweroff_btn, &QPushButton::clicked, this, &DevicePanel::poweroff);
@@ -366,7 +366,7 @@ QString C2NetworkPanel::getIPAddress() {
   return result.substr(begin, end - begin).c_str();
 }
 
-QWidget *network_panel(QWidget *parent) {
+QWidget *الشبكة_panel(QWidget *parent) {
 #ifdef QCOM
   return new C2NetworkPanel(parent);
 #else
@@ -412,7 +412,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) : QFrame(parent) {
   )");
 
   // close button
-  QPushButton *close_btn = new QPushButton("← Back");
+  QPushButton *close_btn = new QPushButton("← الرجوع");
   close_btn->setStyleSheet(R"(
     QPushButton {
       font-size: 50px;
