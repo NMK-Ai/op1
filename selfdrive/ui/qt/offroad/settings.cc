@@ -366,7 +366,7 @@ QString C2NetworkPanel::getIPAddress() {
   return result.substr(begin, end - begin).c_str();
 }
 
-QWidget *الشبكة_panel(QWidget *parent) {
+QWidget *network_panel(QWidget *parent) {
 #ifdef QCOM
   return new C2NetworkPanel(parent);
 #else
