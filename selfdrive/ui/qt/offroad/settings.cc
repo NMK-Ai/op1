@@ -441,11 +441,11 @@ SettingsWindow::SettingsWindow(QWidget *parent) : QFrame(parent) {
   QObject::connect(device, &DevicePanel::closeSettings, this, &SettingsWindow::closeSettings);
 
   QList<QPair<QString, QWidget *>> panels = {
-    {"Device", device},
-    {"Network", network_panel(this)},
-    {"Toggles", new TogglesPanel(this)},
-    {"Software", new SoftwarePanel(this)},
-    {"Community", new CommunityPanel(this)},
+    {"الجهاز", device},
+    {"الشبكة", network_panel(this)},
+    {"الخيارات", new TogglesPanel(this)},
+    {"البرنامج", new SoftwarePanel(this)},
+    {"التطوير", new CommunityPanel(this)},
   };
 
 #ifdef ENABLE_MAPS
