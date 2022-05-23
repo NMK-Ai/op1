@@ -532,7 +532,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
 
   QString selected = QString::fromStdString(Params().get("SelectedCar"));
 
-  QPushButton* selectCarBtn = new QPushButton(selected.length() ? selected : "Select your car");
+  QPushButton* selectCarBtn = new QPushButton(selected.length() ? selected : "اختر سيارتك");
   selectCarBtn->setObjectName("selectCarBtn");
   selectCarBtn->setStyleSheet("margin-right: 30px;");
   //selectCarBtn->setFixedSize(350, 100);
@@ -684,7 +684,7 @@ SelectCar::SelectCar(QWidget* parent): QWidget(parent) {
   main_layout->setSpacing(20);
 
   // Back button
-  QPushButton* back = new QPushButton("Back");
+  QPushButton* back = new QPushButton("الرجوع");
   back->setObjectName("back_btn");
   back->setFixedSize(500, 100);
   connect(back, &QPushButton::clicked, [=]() { emit backPress(); });
