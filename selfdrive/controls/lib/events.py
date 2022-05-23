@@ -419,7 +419,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.preDriverUnresponsive: {
     ET.WARNING: Alert(
-      "Touch Steering Wheel: No Face Detected",
+      "المس عجلة القيادة: لم يتم التعرف على السائق",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.steerRequired, AudibleAlert.none, .1, alert_rate=0.75),
@@ -427,32 +427,32 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.promptDriverUnresponsive: {
     ET.WARNING: Alert(
-      "Touch Steering Wheel",
-      "Driver Unresponsive",
+      "المس عجلة القيادة",
+      "السائق لا يستجيب",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.MID, VisualAlert.steerRequired, AudibleAlert.promptDistracted, .1),
   },
 
   EventName.driverUnresponsive: {
     ET.WARNING: Alert(
-      "DISENGAGE IMMEDIATELY",
-      "Driver Unresponsive",
+      "افصل على الفور",
+      "السائق لا يستجيب",
       AlertStatus.critical, AlertSize.full,
       Priority.HIGH, VisualAlert.steerRequired, AudibleAlert.warningImmediate, .1),
   },
 
   EventName.manualRestart: {
     ET.WARNING: Alert(
-      "TAKE CONTROL",
-      "Resume Driving Manually",
+      "قم بالتحكم",
+      "استئناف القيادة يدويًا",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .2),
   },
 
   EventName.resumeRequired: {
     ET.WARNING: Alert(
-      "STOPPED",
-      "Press Resume to Go",
+      "توقفت",
+      "اضغط على استئناف للذهاب",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .2),
   },
@@ -463,7 +463,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.preLaneChangeLeft: {
     ET.WARNING: Alert(
-      "Steer Left to Start Lane Change Once Safe",
+      "انطلق يسارًا لبدء تغيير المسار بمجرد أن يصبح آمنًا",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .1, alert_rate=0.75),
@@ -471,7 +471,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.preLaneChangeRight: {
     ET.WARNING: Alert(
-      "Steer Right to Start Lane Change Once Safe",
+      "توجه يمينًا لبدء تغيير المسار بمجرد أن يصبح آمنًا",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .1, alert_rate=0.75),
@@ -479,7 +479,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.laneChangeBlocked: {
     ET.WARNING: Alert(
-      "Car Detected in Blindspot",
+      "تم اكتشاف السيارة في النقطة العمياء",
       "",
       AlertStatus.userPrompt, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.prompt, .1),
@@ -487,7 +487,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.laneChange: {
     ET.WARNING: Alert(
-      "Changing Lanes",
+      "تغيير المسارات",
       "",
       AlertStatus.normal, AlertSize.small,
       Priority.LOW, VisualAlert.none, AudibleAlert.none, .1),
@@ -495,25 +495,25 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.steerSaturated: {
     ET.WARNING: Alert(
-      "Take Control",
-      "Turn Exceeds Steering Limit",
+      "قم بالتحكم",
+      "يتخطى المنعطف حد التوجيه",
       AlertStatus.userPrompt, AlertSize.mid,
       Priority.LOW, VisualAlert.steerRequired, AudibleAlert.promptRepeat, 1.),
   },
 
   # Thrown when the fan is driven at >50% but is not rotating
   EventName.fanMalfunction: {
-    ET.PERMANENT: NormalPermanentAlert("Fan Malfunction", "Contact Support"),
+    ET.PERMANENT: NormalPermanentAlert("عطل في المروحة", "اتصل بالدعم"),
   },
 
   # Camera is not outputting frames at a constant framerate
   EventName.cameraMalfunction: {
-    ET.PERMANENT: NormalPermanentAlert("Camera Malfunction", "Contact Support"),
+    ET.PERMANENT: NormalPermanentAlert("عطل في الكاميرا", "اتصل بالدعم"),
   },
 
   # Unused
   EventName.gpsMalfunction: {
-    ET.PERMANENT: NormalPermanentAlert("GPS Malfunction", "Contact Support"),
+    ET.PERMANENT: NormalPermanentAlert("عطل في نظام تحديد المواقع العالمي", "اتصل بالدعم"),
   },
 
   # When the GPS position and localizer diverge the localizer is reset to the
@@ -543,17 +543,17 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.brakeHold: {
     ET.USER_DISABLE: EngagementAlert(AudibleAlert.disengage),
-    ET.NO_ENTRY: NoEntryAlert("Brake Hold Active"),
+    ET.NO_ENTRY: NoEntryAlert("تثبيت الفرامل نشط"),
   },
 
   EventName.parkBrake: {
     ET.USER_DISABLE: EngagementAlert(AudibleAlert.disengage),
-    ET.NO_ENTRY: NoEntryAlert("Parking Brake Engaged"),
+    ET.NO_ENTRY: NoEntryAlert("فرامل الانتظار معشق"),
   },
 
   EventName.pedalPressed: {
     ET.USER_DISABLE: EngagementAlert(AudibleAlert.disengage),
-    ET.NO_ENTRY: NoEntryAlert("Pedal Pressed",
+    ET.NO_ENTRY: NoEntryAlert("الضغط على الدواسة",
                               visual_alert=VisualAlert.brakePressed),
   },
 
@@ -564,17 +564,17 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
 
   EventName.wrongCruiseMode: {
     ET.USER_DISABLE: EngagementAlert(AudibleAlert.disengage),
-    ET.NO_ENTRY: NoEntryAlert("Adaptive Cruise Disabled"),
+    ET.NO_ENTRY: NoEntryAlert("الرحلات البحرية التكيفية معطل"),
   },
 
   EventName.steerTempUnavailable: {
-    ET.SOFT_DISABLE: soft_disable_alert("Steering Temporarily Unavailable"),
-    ET.NO_ENTRY: NoEntryAlert("Steering Temporarily Unavailable"),
+    ET.SOFT_DISABLE: soft_disable_alert("التوجيه غير متوفر مؤقتًا"),
+    ET.NO_ENTRY: NoEntryAlert("التوجيه غير متوفر مؤقتًا"),
   },
 
   EventName.outOfSpace: {
-    ET.PERMANENT: NormalPermanentAlert("Out of Storage"),
-    ET.NO_ENTRY: NoEntryAlert("Out of Storage"),
+    ET.PERMANENT: NormalPermanentAlert("الذاكرة ممتلئة"),
+    ET.NO_ENTRY: NoEntryAlert("الذاكرة ممتلئة"),
   },
 
   EventName.belowEngageSpeed: {
@@ -587,7 +587,7 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
       "Reboot your Device",
       AlertStatus.normal, AlertSize.mid,
       Priority.LOWER, VisualAlert.none, AudibleAlert.none, .2, creation_delay=1.),
-    ET.NO_ENTRY: NoEntryAlert("No Data from Device Sensors"),
+    ET.NO_ENTRY: NoEntryAlert("لا توجد بيانات من أجهزة استشعار الجهاز"),
   },
 
   EventName.noGps: {
@@ -595,23 +595,23 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   },
 
   EventName.soundsUnavailable: {
-    ET.PERMANENT: NormalPermanentAlert("Speaker not found", "Reboot your Device"),
+    ET.PERMANENT: NormalPermanentAlert("مكبر الصوت غير موجود", "إعادة تشغيل الجهاز"),
     ET.NO_ENTRY: NoEntryAlert("Speaker not found"),
   },
 
   EventName.tooDistracted: {
-    ET.NO_ENTRY: NoEntryAlert("Distraction Level Too High"),
+    ET.NO_ENTRY: NoEntryAlert("مستوى الإلهاء مرتفع جدًا"),
   },
 
   EventName.overheat: {
-    ET.PERMANENT: NormalPermanentAlert("System Overheated"),
-    ET.SOFT_DISABLE: soft_disable_alert("System Overheated"),
-    ET.NO_ENTRY: NoEntryAlert("System Overheated"),
+    ET.PERMANENT: NormalPermanentAlert("النظام ساخن"),
+    ET.SOFT_DISABLE: soft_disable_alert("النظام ساخن"),
+    ET.NO_ENTRY: NoEntryAlert("النظام ساخن"),
   },
 
   EventName.wrongGear: {
-    ET.SOFT_DISABLE: user_soft_disable_alert("Gear not D"),
-    ET.NO_ENTRY: NoEntryAlert("Gear not D"),
+    ET.SOFT_DISABLE: user_soft_disable_alert("القير ليس على وضع القيادة"),
+    ET.NO_ENTRY: NoEntryAlert("القير ليس على وضع القيادة"),
   },
 
   # This alert is thrown when the calibration angles are outside of the acceptable range.
@@ -620,35 +620,35 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   # and attaching while making sure the device is pointed straight forward and is level.
   # See https://comma.ai/setup for more information
   EventName.calibrationInvalid: {
-    ET.PERMANENT: NormalPermanentAlert("Calibration Invalid", "Remount Device and Recalibrate"),
-    ET.SOFT_DISABLE: soft_disable_alert("Calibration Invalid: Remount Device & Recalibrate"),
-    ET.NO_ENTRY: NoEntryAlert("Calibration Invalid: Remount Device & Recalibrate"),
+    ET.PERMANENT: NormalPermanentAlert("المعايرة غير صحيحة", "أعد تركيب الجهاز وأعد المعايرة"),
+    ET.SOFT_DISABLE: soft_disable_alert("المعايرة غير صحيحة: أعد تثبيت الجهاز وإعادة المعايرة"),
+    ET.NO_ENTRY: NoEntryAlert("المعايرة غير صحيحة: أعد تثبيت الجهاز وإعادة المعايرة"),
   },
 
   EventName.calibrationIncomplete: {
     ET.PERMANENT: calibration_incomplete_alert,
-    ET.SOFT_DISABLE: soft_disable_alert("Calibration in Progress"),
-    ET.NO_ENTRY: NoEntryAlert("Calibration in Progress"),
+    ET.SOFT_DISABLE: soft_disable_alert("المعايرة جارية"),
+    ET.NO_ENTRY: NoEntryAlert("المعايرة جارية"),
   },
 
   EventName.doorOpen: {
-    ET.SOFT_DISABLE: user_soft_disable_alert("Door Open"),
-    ET.NO_ENTRY: NoEntryAlert("Door Open"),
+    ET.SOFT_DISABLE: user_soft_disable_alert("الباب مفتوح"),
+    ET.NO_ENTRY: NoEntryAlert("الباب مفتوح"),
   },
 
   EventName.seatbeltNotLatched: {
-    ET.SOFT_DISABLE: user_soft_disable_alert("Seatbelt Unlatched"),
-    ET.NO_ENTRY: NoEntryAlert("Seatbelt Unlatched"),
+    ET.SOFT_DISABLE: user_soft_disable_alert("حزام الأمان غير مربوط"),
+    ET.NO_ENTRY: NoEntryAlert("حزام الأمان غير مربوط"),
   },
 
   EventName.espDisabled: {
-    ET.SOFT_DISABLE: soft_disable_alert("ESP Off"),
-    ET.NO_ENTRY: NoEntryAlert("ESP Off"),
+    ET.SOFT_DISABLE: soft_disable_alert("إيقاف ESP"),
+    ET.NO_ENTRY: NoEntryAlert("إيقاف ESP"),
   },
 
   EventName.lowBattery: {
-    ET.SOFT_DISABLE: soft_disable_alert("Low Battery"),
-    ET.NO_ENTRY: NoEntryAlert("Low Battery"),
+    ET.SOFT_DISABLE: soft_disable_alert("البطارية ضعيفة"),
+    ET.NO_ENTRY: NoEntryAlert("البطارية ضعيفة"),
   },
 
   # Different openpilot services communicate between each other at a certain
@@ -656,18 +656,18 @@ EVENTS: Dict[int, Dict[str, Union[Alert, AlertCallbackType]]] = {
   # is thrown. This can mean a service crashed, did not broadcast a message for
   # ten times the regular interval, or the average interval is more than 10% too high.
   EventName.commIssue: {
-    ET.SOFT_DISABLE: soft_disable_alert("Communication Issue between Processes"),
-    ET.NO_ENTRY: NoEntryAlert("Communication Issue between Processes"),
+    ET.SOFT_DISABLE: soft_disable_alert("مشكلة الاتصال بين العمليات"),
+    ET.NO_ENTRY: NoEntryAlert("مشكلة الاتصال بين العمليات"),
   },
 
   # Thrown when manager detects a service exited unexpectedly while driving
   EventName.processNotRunning: {
-    ET.NO_ENTRY: NoEntryAlert("System Malfunction: Reboot Your Device"),
+    ET.NO_ENTRY: NoEntryAlert("خلل في النظام: إعادة تشغيل الجهاز"),
   },
 
   EventName.radarFault: {
-    ET.SOFT_DISABLE: soft_disable_alert("Radar Error: Restart the Car"),
-    ET.NO_ENTRY: NoEntryAlert("Radar Error: Restart the Car"),
+    ET.SOFT_DISABLE: soft_disable_alert("خطأ الرادار: أعد تشغيل السيارة"),
+    ET.NO_ENTRY: NoEntryAlert("خطأ الرادار: أعد تشغيل السيارة"),
   },
 
   # Every frame from the camera should be processed by the model. If modeld
