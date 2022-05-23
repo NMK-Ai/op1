@@ -276,7 +276,7 @@ SoftwarePanel::SoftwarePanel(QWidget* parent) : ListWidget(parent) {
   });
 
 
-  auto uninstallBtn = new ButtonControl("الغاء التثبيت " + getBrand(), "UNINSTALL");
+  auto uninstallBtn = new ButtonControl("الغاء التثبيت " + getBrand(), "الغاء التثبيت");
   connect(uninstallBtn, &ButtonControl::clicked, [&]() {
     if (ConfirmationDialog::confirm("هل أنت متأكد أنك تريد إلغاء التثبيت؟", this)) {
       params.putBool("DoUninstall", true);
@@ -412,7 +412,7 @@ SettingsWindow::SettingsWindow(QWidget *parent) : QFrame(parent) {
   )");
 
   // close button
-  QPushButton *close_btn = new QPushButton("← Back");
+  QPushButton *close_btn = new QPushButton("← الرجوع");
   close_btn->setStyleSheet(R"(
     QPushButton {
       font-size: 50px;
