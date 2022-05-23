@@ -652,7 +652,7 @@ CommunityPanel::CommunityPanel(QWidget* parent) : QWidget(parent) {
                                             this));*/
 
   toggles.append(new ParamControl("DisableOpFcw",
-                                            "تعطيل نظام التحذير من الإصتدام الأمامي",
+                                            "تعطيل نظام التحذير من الإصدام الأمامي",
                                             "",
                                             "../assets/offroad/icon_shell.png",
                                             this));
