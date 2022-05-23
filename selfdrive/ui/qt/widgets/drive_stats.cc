@@ -41,9 +41,9 @@ DriveStats::DriveStats(QWidget* parent) : QFrame(parent) {
     main_layout->addLayout(grid_layout);
   };
 
-  add_stats_layouts("ALL TIME", all_);
+  add_stats_layouts("جميع الأوقات", all_);
   main_layout->addStretch();
-  add_stats_layouts("PAST WEEK", week_);
+  add_stats_layouts("الاسبوع الماضي", week_);
 
   /*if (auto dongleId = getDongleId()) {
     QString url = "https://api.commadotai.com/v1.1/devices/" + *dongleId + "/stats";
