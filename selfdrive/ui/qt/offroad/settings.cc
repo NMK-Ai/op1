@@ -106,14 +106,14 @@ TogglesPanel::TogglesPanel(SettingsWindow *parent) : ListWidget(parent) {
 
 DevicePanel::DevicePanel(SettingsWindow *parent) : ListWidget(parent) {
   setSpacing(50);
-  addItem(new LabelControl("Dongle ID", getDongleId().value_or("N/A")));
-  addItem(new LabelControl("Serial", params.get("HardwareSerial").c_str()));
+  addItem(new LabelControl("رقم الجهاز", getDongleId().value_or("N/A")));
+  addItem(new LabelControl("رقم التسلسل", params.get("HardwareSerial").c_str()));
 
   QHBoxLayout *reset_layout = new QHBoxLayout();
   reset_layout->setSpacing(30);
 
   // reset calibration button
-  QPushButton *restart_openpilot_btn = new QPushButton("Soft restart");
+  QPushButton *restart_openpilot_btn = new QPushButton("إعادة تشغيل لينة");
   restart_openpilot_btn->setStyleSheet("height: 120px;border-radius: 15px;background-color: #393939;");
   reset_layout->addWidget(restart_openpilot_btn);
   QObject::connect(restart_openpilot_btn, &QPushButton::released, [=]() {
