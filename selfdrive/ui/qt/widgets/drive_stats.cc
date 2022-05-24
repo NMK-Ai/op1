@@ -34,16 +34,16 @@ DriveStats::DriveStats(QWidget* parent) : QFrame(parent) {
     grid_layout->addWidget(labels.distance = newLabel("0", "number"), row, 1, Qt::AlignLeft);
     grid_layout->addWidget(labels.hours = newLabel("0", "number"), row, 2, Qt::AlignLeft);
 
-    grid_layout->addWidget(newLabel("Drives", "unit"), row + 1, 0, Qt::AlignLeft);
+    grid_layout->addWidget(newLabel("القيادة", "unit"), row + 1, 0, Qt::AlignLeft);
     grid_layout->addWidget(labels.distance_unit = newLabel(getDistanceUnit(), "unit"), row + 1, 1, Qt::AlignLeft);
-    grid_layout->addWidget(newLabel("Hours ", "unit"), row + 1, 2, Qt::AlignLeft);
+    grid_layout->addWidget(newLabel("الساعات ", "unit"), row + 1, 2, Qt::AlignLeft);
 
     main_layout->addLayout(grid_layout);
   };
 
-  add_stats_layouts("ALL TIME", all_);
+  add_stats_layouts("جميع الأوقات", all_);
   main_layout->addStretch();
-  add_stats_layouts("PAST WEEK", week_);
+  add_stats_layouts("الاسبوع الماضي", week_);
 
   /*if (auto dongleId = getDongleId()) {
     QString url = "https://api.commadotai.com/v1.1/devices/" + *dongleId + "/stats";
